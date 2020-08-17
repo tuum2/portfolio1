@@ -1,0 +1,772 @@
+@charset "utf-8";
+/* MAIN.CSS */
+
+
+
+@import url(gridSetFlex.css);
+@import url(gridView.css);
+@import url(reset.css);
+@import url(core.css);
+
+
+
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+
+}
+
+/* 그리드 재정의 */
+.grid {
+
+    width: 1440px;
+    z-index: -1;
+    display: none;
+}
+
+
+.page {
+
+    width: 100%;
+    height: 100%;
+    outline: 2px dotted red;
+}
+
+.inbox {
+    position: relative;
+    top: 50%;
+    /*세로크기의 중앙에 오도록 셋팅*/
+    transform: translateY(-50%);
+    width: 1440px;
+    max-width: 100%;	
+    /*height: 100%;*/
+    margin: 0 auto;
+
+}
+
+
+
+/*////// 0 상단 영역 //////*/
+
+.top {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 999999;
+
+}
+
+#top [class*=col-] {
+
+    height: 70px;
+}
+
+/* SNS */
+.top_sns {
+
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.top_sns li {
+
+    width: 35px;
+}
+
+.ico img:last-child {
+
+    display: none;
+    
+}
+.ico:hover img:last-child {
+
+    display: inline;
+    
+}
+.ico:hover img:first-child {
+
+    display: none;
+    
+}
+
+
+/*sns 하단 큰 로고*/
+.main_logo {
+    position: absolute;
+    top: 400%;
+    left: -270px;
+    
+    transform: skewX(-25deg) translateY(-50%);
+    transform-origin: left;
+    white-space: nowrap;
+    transition: all .6s ease-out;
+	
+	font-size:10rem;
+    color: #f7f817;
+	letter-spacing: -10px;
+    /*display: none;*/
+}
+
+.main_logo a {
+	color:#f7f817;
+	text-shadow: 1px 1px 10px #000;
+}
+
+/* class명 on이 추가될떄의 메인 로고 */
+.snsbx.on .main_logo {
+    top: 50%;
+    left: 10px;
+    font-size: 1.2rem;
+	letter-spacing: 0px;
+	text-shadow:0;
+}
+
+/* class명 on이 추가될떄의 sns 박스 */
+.snsbx.on .top_sns{
+    display: none;
+}
+
+
+#top img {
+
+    width: 25px;
+    height: 25px;
+
+}
+
+/* GNB */
+.gnb {
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.gnb li {
+
+
+    position: relative;
+    padding: 5px;
+
+}
+
+.gnb li::before {
+
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    background: rgba(0, 0, 0, 1);
+    z-index: -1;
+    transition: width .3s ease-in .1s;
+
+}
+
+
+.gnb li:hover::before {
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.gnb li a {
+
+    color: #f7f817;
+    font-size: 25px;
+    font-family: sports;
+    font-weight: 900;
+
+}
+
+
+
+/* MYPAGE */
+.mypage {
+
+    line-height: 70px;
+    padding-left: calc(50% - 17.5px);
+
+
+}
+
+/*/////////////// 1 배너 영역 ////////////////*/
+
+.ban {
+
+
+    background: url(../images/main_bg.jpg) no-repeat center/cover;
+
+}
+
+.pglink {
+	
+	padding-top:400px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.pglink li a{
+	
+	font-family:'Noto Sans KR', sans-serif;
+	font-size: 100px;
+	letter-spacing: -8px;
+	line-height: 100px;	
+	font-weight: 900;
+	color:#fff;
+}
+
+.pglink li:last-child a{
+	
+	font-size: 40px;
+	letter-spacing: -3px;
+	
+}
+
+.pglink img {
+	
+	
+	width:45px;
+	height:45px;
+	vertical-align: -8px;
+}
+
+/* 뉴스 - 이동 바 */
+
+.news_bar {
+
+    position: absolute;
+    right: 0px;
+    bottom: -50px;
+	width: 230px;
+    height: 40px;
+   
+    background: #f7f817;
+    overflow: hidden;
+    padding: 0 5px;
+}
+
+.newtxt {
+	
+	 
+	position:absolute;
+	left:100%;
+	color: #000;
+    font-weight: bold;
+    font-size: 20px;
+	line-height: 38px;
+	
+}
+
+.news_bar .newtxt {
+	
+	animation: newtxt 10s linear infinite;
+	
+}
+
+@keyframes newtxt {
+    from {
+       left:100%;
+    }
+
+    to {
+       left:-300%;
+    }
+}
+
+
+
+/* 프로그램영역 1 */
+
+.pro1h1, .pro1h2 {
+
+	
+    height: 380px;
+}
+
+.protit {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 50px;
+    transition: all .5s ease-in;
+
+}
+
+
+.pro1h1 {
+
+    position: relative;
+    margin: 20px 0;
+    background: url(../images/youth_1.jpg) no-repeat 0 35%/cover;
+    overflow: hidden;
+
+}
+
+.pro1h1::before {
+
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.pro1h1:hover {
+
+    background: url(../images/youth_3.jpg) no-repeat 40% 20%;
+    background-size: cover;
+    transition: all .5s ease-in-out;
+
+
+}
+
+.pro1h1:hover::before {
+
+    background-color: rgba(0, 0, 0, 0);
+
+}
+
+.pro1h1:hover .protit {
+
+    display: none;
+
+}
+
+/*움직이는 글자*/
+.mvtxt {
+    position: absolute;
+    top: -100%;
+    left: 100%;
+    font-size: 218px;
+    white-space: nowrap;
+	letter-spacing: -10px;
+    color: #f7f817;
+    transform: rotate(-15deg);    
+}
+.progbx:hover .mvtxt{
+    /*애니메이션*/
+    animation: mvtxt 6s linear infinite;    
+}
+
+/*애니메이션 키프레임*/
+@keyframes mvtxt {
+    from {
+        top: -100%;
+        left: 100%;
+    }
+
+    to {
+        top: 100%;
+        left: -200%;
+    }
+}
+
+/*키프레임*/
+
+
+
+.pro1h2 {
+
+    position: relative;
+    background: url(../images/adult_1.jpg) no-repeat 0 25%/cover;
+    /* */
+    overflow: hidden;
+
+
+}
+
+.pro1h2::before {
+
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+
+.pro1h2:hover {
+
+    background: url(../images/adult_2.jpg) no-repeat bottom;
+    background-size: cover;
+    transition: all .5s ease-in-out;
+
+
+}
+
+.pro1h2:hover::before {
+
+    background-color: rgba(0, 0, 0, 0);
+
+}
+
+.pro1h2:hover .protit {
+
+    display: none;
+
+}
+
+
+/* 프로그램 영역 2 */
+
+.pro2h1,
+.pro2h2 {
+
+    height: 400px;
+}
+
+/* 장애인 */
+.pro2h1 {
+
+    position: relative;
+    margin: 20px 0;
+    background: url(../images/장애인.jpg) no-repeat 0 35%/cover;
+
+    overflow: hidden;
+
+}
+
+.pro2h1::before {
+
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.pro2h1:hover {
+
+    background: url(../images/장애인3.jpg) no-repeat 10% 20%/cover;
+    transition: all .5s ease-in-out;
+
+
+}
+
+.pro2h1:hover::before {
+
+    background-color: rgba(0, 0, 0, 0);
+
+}
+
+.pro2h1:hover .protit {
+
+    display: none;
+
+}
+
+
+/* 여성 */
+.pro2h2 {
+
+    position: relative;
+    background: url(../images/woman.jpg) no-repeat 0 25%/cover;
+    /* */
+    overflow: hidden;
+
+
+}
+
+.pro2h2::before {
+
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.pro2h2:hover {
+
+    background: url(../images/woman_4.jpg) no-repeat 0 20%/cover;
+    transition: all .5s ease-in-out;
+
+
+}
+
+.pro2h2:hover::before {
+
+    background-color: rgba(0, 0, 0, 0);
+
+}
+
+.pro2h2:hover .protit {
+
+    display: none;
+
+}
+
+
+/*////////// about 영역 //////////*/
+
+.about {
+
+    background: url(../images/about_bg.jpg) no-repeat top/cover;
+}
+
+
+/*//////////// media 영역////////////*/
+
+.mh1,
+.mh2 {
+
+    height: 380px;
+
+}
+
+.mh2 {
+    position: relative;
+}
+
+.mitit {
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 100px;
+    background: url(../images/insta_w.png) no-repeat 10% center;
+    background-size: 40px 40px;
+    background-color: rgba(0, 0, 0, .7);
+    padding: 10px 50px;
+}
+
+.mitit p {
+
+
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    padding: 15px 0 0 30px;
+
+}
+
+.mitit span {
+
+
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+
+}
+
+.media_instagram {
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.media_instagram li {
+
+
+    width: 20%;
+    height: 50%;
+
+}
+
+.media_instagram li:nth-child(1) {
+
+    background: url(../images/children-1822688_1920.jpg) no-repeat center/cover;
+}
+
+.media_instagram li:nth-child(2) {
+
+    background: url(../images/football-3700962_1920.jpg) no-repeat center/cover;
+}
+
+.media_instagram li:nth-child(3) {
+
+    background: url(../images/kids-3503767_1920.jpg) no-repeat center/cover;
+}
+
+.media_instagram li:nth-child(4) {
+
+    background: url(../images/sport-266536_1920.jpg) no-repeat center/cover;
+}
+
+.media_instagram li:nth-child(5) {
+
+    background: url(../images/woman_2.jpg) no-repeat center/cover;
+}
+
+.media_instagram li:nth-child(6) {
+
+    background: url(../images/youth_2.jpg) no-repeat center/cover;
+}
+
+.media_instagram li:nth-child(7) {
+
+    background: url(../images/kids-3503767_1920.jpg) no-repeat center/cover;
+}
+
+.media_instagram li:nth-child(8) {
+
+    background: url(../images/children-1822688_1920.jpg) no-repeat center/cover;
+}
+
+.media_instagram li:nth-child(9) {
+
+    background: url(../images/soccer-673488_1920.jpg) no-repeat center/cover;
+}
+
+.media_instagram li:nth-child(10) {
+
+    background: url(../images/children-1822688_1920.jpg) no-repeat center/cover;
+}
+
+
+/* 6. 하단영역 */
+
+.info {
+
+    background: url(../images/footer_bg.jpg) no-repeat 20%/cover;
+    position: relative;
+
+}
+
+.footer_top {
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.footer_news {
+
+    position: relative;
+    width: 320px;
+    height: 300px;
+    border-bottom: 3px solid #f7f817;
+
+}
+
+.footer_news p {
+
+    /*outline: 1px solid #f00;*/
+    color: #f7f817;
+    font-size: 50px;
+    font-family: sports;
+    font-weight: 900;
+    line-height: 45px;
+    letter-spacing: -5px;
+
+}
+
+.email_ok {
+
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    color: #f7f817;
+}
+
+.email_ok a {
+
+    color: #f7f817;
+}
+
+.email_ok input {
+
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    border: none;
+}
+
+
+
+
+.menu {
+
+    width: 440px;
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu a {
+
+    font-size: 20px;
+    color: #f7f817;
+
+}
+
+.menu li:first-child a {
+
+
+    font-size: 30px;
+    font-weight: 700;
+
+}
+
+
+.footer_logo {
+
+    
+    position: absolute;
+    bottom: 0;
+	left:70px;
+	text-align: center;
+    
+	
+
+}
+
+.footer_logo h3 {
+
+    font-size: 150px;
+    letter-spacing: -10px;
+	white-space: nowrap;
+    color: #f7f817;
+    transform: skewX(-20deg);
+	
+
+
+}
+
+.footer_logo address {
+
+    line-height: 30px;
+    color: #f7f817;
+}
